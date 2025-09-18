@@ -1,5 +1,10 @@
-# ==== global.R ====
 library(tidyverse)
+library(httr)
+library(jsonlite)
+library(dplyr)
+library(rebus)
+source("helpers.R")
+
 
 # Quarterly periods: 3 months (0.25 years) up to 20 years
 periods <- seq(0.25, 20, by = 0.25)
