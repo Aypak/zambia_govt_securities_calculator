@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+.Rprofile
+deploy.R
+rsconnect
+renv
