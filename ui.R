@@ -4,7 +4,7 @@ library(shinyBS)
 
 ui <- fluidPage(
   theme = shinytheme("cosmo"),
-  titlePanel("💰 Investment Payout Calculator"),
+  titlePanel("💰 Zambia Government Securities Payout Calculator"),
 
   tabsetPanel(
     tabPanel(
