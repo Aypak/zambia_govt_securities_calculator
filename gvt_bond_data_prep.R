@@ -8,6 +8,7 @@ zm_gb_interest_rates <- zm_gb_interest_rates %>%
     # Get the number of years from residual maturity string
     maturity_years = str_extract(residual_maturity, one_or_more(DIGIT)) %>%
       as.numeric(),
+    annualized_yield_pct = annualized_yield/100,
     # Get number of coupon payments : 2 per year
     num_coupon_payments = maturity_years * 2,
     tax_rate = rep(0.15),
