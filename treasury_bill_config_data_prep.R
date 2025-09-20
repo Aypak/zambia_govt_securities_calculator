@@ -1,5 +1,3 @@
-library(tidyverse)
-
 treasury_bill_tenures_days <- c(91, 182, 273, 364)
 treasury_bill_approx_interest_rates <- c(0.11, 0.12, 0.13, 0.14)
 
