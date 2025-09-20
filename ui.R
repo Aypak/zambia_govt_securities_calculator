@@ -1,4 +1,3 @@
-# ==== ui.R ====
 library(shiny)
 library(shinythemes)
 library(shinyBS)
@@ -8,40 +7,78 @@ ui <- fluidPage(
   titlePanel("💰 Investment Payout Calculator"),
 
   tabsetPanel(
-    tabPanel("Investment Type A",
-             sidebarLayout(
-               sidebarPanel(
-                 numericInput("amountA", "Investment Amount:", value = 1000, min = 0),
-                 bsTooltip("amountA", "Enter the amount you plan to invest (non-negative number).",
-                           placement = "right", trigger = "hover"),
+    tabPanel(
+      "Treasury Bill",
+      sidebarLayout(
+        sidebarPanel(
+          numericInput(
+            "face_value_tb",
+            "Face Value Amount:",
+            value = 1000,
+            min = 0
+          ),
+          bsTooltip(
+            "face_value_tb",
+            "The amount that Government promises to pay you at the end of your investment's maturity period",
+            placement = "right",
+            trigger = "hover"
+          ),
 
-                 selectInput("periodA", "Investment Period (Years):",
-                             choices = unique(investment_df$period), selected = 1),
-                 bsTooltip("periodA", "Select how long you will invest, from 3 months up to 20 years.",
-                           placement = "right", trigger = "hover")
-               ),
-               mainPanel(
-                 h4("📊 Results for Investment A"),
-                 wellPanel(uiOutput("resultsA"))
-               )
-             )),
+          selectInput(
+            "tenure_tb",
+            "Maturity Period:",
+            choices = unique(treasury_bill_config$tenure_string),
+            selected = 1
+          ),
+          bsTooltip(
+            "tenure_tb",
+            "How long you lend your money to the Government (31 days to 364 days)",
+            placement = "right",
+            trigger = "hover"
+          )
+        ),
+        mainPanel(
+          h4("📊 Expected Payout"),
+          wellPanel(uiOutput("results_tb"))
+        )
+      )
+    ),
 
-    tabPanel("Investment Type B",
-             sidebarLayout(
-               sidebarPanel(
-                 numericInput("amountB", "Investment Amount:", value = 1000, min = 0),
-                 bsTooltip("amountB", "Enter the amount you plan to invest (non-negative number).",
-                           placement = "right", trigger = "hover"),
+    # tabPanel(
+    #   "Government Bond",
+    #   sidebarLayout(
+    #     sidebarPanel(
+    #       numericInput(
+    #         "maturity_value_gb",
+    #         "Investment Amount:",
+    #         value = 1000,
+    #         min = 0
+    #       ),
+    #       bsTooltip(
+    #         "maturity_value_gb",
+    #         "The amount of money you lend to the government",
+    #         placement = "right",
+    #         trigger = "hover"
+    #       ),
 
-                 selectInput("periodB", "Investment Period (Years):",
-                             choices = unique(investment_df$period), selected = 1),
-                 bsTooltip("periodB", "Select how long you will invest, from 3 months up to 20 years.",
-                           placement = "right", trigger = "hover")
-               ),
-               mainPanel(
-                 h4("📊 Results for Investment B"),
-                 wellPanel(uiOutput("resultsB"))
-               )
-             ))
+    #       selectInput(
+    #         "maturity_period_gb",
+    #         "Maturity Period:",
+    #         choices = unique(investment_df$period),
+    #         selected = 1
+    #       ),
+    #       bsTooltip(
+    #         "maturity_period_gb",
+    #         "How long you lend your money to the Government (2 years to 15 years)",
+    #         placement = "right",
+    #         trigger = "hover"
+    #       )
+    #     ),
+    #     mainPanel(
+    #       h4("📊 Expected Payout"),
+    #       wellPanel(uiOutput("results_gb"))
+    #     )
+    #   )
+    # )
   )
 )
