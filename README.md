@@ -1,6 +1,6 @@
-# Zambia Government Securities Payout Calculator
+# Government Securities Payout Calculator
 
-This application allows potential investors to estimate how much they might receive from Treasury Bills and Government Bonds offered by the Zambian government. Users can input their investment amount and investment period, and the app will display a breakdown of the expected payouts.
+This application allows potential investors to estimate how much they might receive from Treasury Bills and Government Bonds offered by the government. Users can input their investment amount and investment period, and the app will display a breakdown of the expected payouts.
 
 It is intended for **demonstration and educational purposes** only.
 
